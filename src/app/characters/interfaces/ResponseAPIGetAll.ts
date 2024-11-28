@@ -1,7 +1,7 @@
 export interface ResponseAPIGetAll {
     id:       number;
     name:     string;
-    status:   string;
+    status:   Status;
     species:  string;
     type:     string;
     gender:   string;
@@ -16,4 +16,10 @@ export interface ResponseAPIGetAll {
 export interface Location {
     name: string;
     url:  string;
+}
+
+export enum Status {
+    Alive = "Alive",
+    Dead = "Dead",
+    Unknown = "unknown",
 }
