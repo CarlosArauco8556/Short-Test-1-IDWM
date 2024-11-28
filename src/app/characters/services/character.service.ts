@@ -17,10 +17,10 @@ export class CharacterService {
 
 
 
-  async getCharacters(numberPage: number): Promise<ResponseAPIGetAll> {
+  async getCharacters(numberPage: number, name: string): Promise<ResponseAPIGetAll> {
     try{
       const response = await firstValueFrom(
-        this.http.get<{ info: Info; results: Character[] }>(`${this.baseUrl}/?page=${numberPage}`)
+        this.http.get<{ info: Info; results: Character[] }>(`${this.baseUrl}/?page=${numberPage} &name=${name}`)
       );
       return Promise.resolve(response); 
     }catch (error) {

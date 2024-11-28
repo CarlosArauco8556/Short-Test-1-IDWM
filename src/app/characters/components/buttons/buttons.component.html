@@ -1,13 +1,15 @@
-<div class="p-4">
-    <input 
-      type="text" 
-      placeholder="Buscar personaje..." 
-      [(ngModel)]="searchQuery" 
-      (input)="filterCharacters()"
-      class="border rounded-md p-2 w-full"
-    />
+// Barra de busqueda.
+<div class="search-container">
+  <input
+    type="text"
+    placeholder="Buscar personajes..."
+    [(ngModel)]="nameCharacter"
+    (input)="filterCharactersByName(nameCharacter)"
+    class="search-box"
+  />
 </div>
 
+// Botones para cambiar de pagina.
 <button type="button" (click) = "previousPage()"
 class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-blue-300 rounded-lg border border-black hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
 >Previous</button>
@@ -17,6 +19,7 @@ class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-non
 >Next</button>
 
 
+// Tarjetas de personajes.
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
     <!-- Iterar sobre cada personaje -->
     <div *ngFor="let character of characters" class="card bg-white shadow-md rounded-lg overflow-hidden">
