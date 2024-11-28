@@ -1,7 +1,35 @@
-<button type="button" (click) = "nextPage()"
-class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-blue-300 rounded-lg border border-black hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
->Next</button>
+<div class="p-4">
+    <input 
+      type="text" 
+      placeholder="Buscar personaje..." 
+      [(ngModel)]="searchQuery" 
+      (input)="filterCharacters()"
+      class="border rounded-md p-2 w-full"
+    />
+</div>
 
 <button type="button" (click) = "previousPage()"
 class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-blue-300 rounded-lg border border-black hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
 >Previous</button>
+
+<button type="button" (click) = "nextPage()"
+class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-blue-300 rounded-lg border border-black hover:bg-gray-100 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+>Next</button>
+
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+    <!-- Iterar sobre cada personaje -->
+    <div *ngFor="let character of characters" class="card bg-white shadow-md rounded-lg overflow-hidden">
+      <!-- Imagen -->
+      <img [src]="character.image" [alt]="character.name" class="w-full h-48 object-cover">
+  
+      <!-- Información del personaje -->
+      <div class="p-4">
+        <h3 class="text-lg font-bold text-gray-800">{{ character.name }}</h3>
+        <p class="text-sm text-gray-600">Status: {{ character.status }}</p>
+        <p class="text-sm text-gray-600">Species: {{ character.species }}</p>
+        <p class="text-sm text-gray-600">Location: {{ character.location.name }}</p>
+        <p class="text-sm text-gray-600">Origin: {{ character.origin.name }}</p>
+      </div>
+    </div>
+  </div>

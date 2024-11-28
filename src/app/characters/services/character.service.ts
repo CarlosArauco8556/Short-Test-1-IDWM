@@ -16,8 +16,10 @@ export class CharacterService {
 
   async getCharacters(numberPage: number): Promise<ResponseAPIGetAll[]> {
     try{
-      const response = await firstValueFrom(this.http.get<ResponseAPIGetAll[]>(`${this.baseUrl}/?page=${numberPage}`));
-      return Promise.resolve(response); 
+      const response = await firstValueFrom(
+        this.http.get<{ info: any; results: any[] }>(`${this.baseUrl}/?page=${numberPage}`)
+      );
+      return Promise.resolve(response.results); 
     }catch (error) {
       console.log('Error en getAllCharacters.', error); 
       let e = error as HttpErrorResponse;
