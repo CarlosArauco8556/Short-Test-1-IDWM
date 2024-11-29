@@ -35,7 +35,7 @@ export class ButtonsComponent {
     else{
       this.currentPage++;
       await this.fetchCharacters();
-      console.log('Página:', this.currentPage, '\nNombre personajes:', this.nameCharacter);
+      console.log('Página:', this.currentPage, '\nFiltro de personajes por nombre:', this.nameCharacter);
     }
   }
 
@@ -46,7 +46,7 @@ export class ButtonsComponent {
     else{
       this.currentPage--;
       await this.fetchCharacters();
-      console.log('Página:', this.currentPage, '\nNombre personajes:', this.nameCharacter);
+      console.log('Página:', this.currentPage, '\nFiltro de personajes por nombre:', this.nameCharacter);
     }
   }
 
